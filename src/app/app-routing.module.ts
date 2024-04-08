@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'livros',
     loadChildren: () => import('./livros/livro.module').then(module => module.LivroModule)
+  },
+  {
+    path: 'bored',
+    loadChildren: () => import('./bored/bored.module').then(module => module.BoredModule)
   }
 ];
 

@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Listagem de Atividades
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form
+        [formGroup]="activityForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <ion-item>
+            <ion-select
+                formControlName="type"
+                label="Tipo"
+                value=""
+                multiple="false"
+                placeholder="Selecione o tipo de Atividade"
+                [compareWith]="compareWith"
+            >
+                <ion-select-option
+                    *ngFor="let type of types"
+                    [value]="type"
+                >
+                    {{ type }}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-fab
+            vertical="bottom"
+            horizontal="end"
+            slot="fixed"
+        >
+            <ion-button type="submit">
+                <ion-icon name="checkmark" />
+            </ion-button>
+        </ion-fab>
+    </form>
+
+    <ion-item>
+        Atividade: {{ activity?.activity }}
+    </ion-item>
+</ion-content>
