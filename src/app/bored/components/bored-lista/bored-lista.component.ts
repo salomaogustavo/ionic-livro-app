@@ -9,7 +9,18 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
     templateUrl: './bored-lista.component.html',
 })
 export class BoredListaComponent implements OnInit, OnDestroy {
-    public types: String[] = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"];
+    public types: { label: string, key: string }[] = [
+        { label: "Educação", key: "education" },
+        { label: "Recreativo", key: "recreational" },
+        { label: "Social", key: "social" },
+        { label: "Faça Você Mesmo", key: "diy" },
+        { label: "Caridade", key: "charity" },
+        { label: "Culinária", key: "cooking" },
+        { label: "Relaxamento", key: "relaxation" },
+        { label: "Música", key: "music" },
+        { label: "Trabalho Ocupado", key: "busywork" }
+    ];
+
     public activity!: Activity;
     private subscription!: Subscription;
 
@@ -55,8 +66,8 @@ export class BoredListaComponent implements OnInit, OnDestroy {
         );
     }
 
-    compareWith(o1: string, o2: string) {
-        return o1 === o2;
+    compareWith(o1: string, o2: string ) {
+        return o1 === o2
     }
 
     onSubmit() {

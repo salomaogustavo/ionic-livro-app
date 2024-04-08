@@ -19,14 +19,14 @@
                 label="Tipo"
                 value=""
                 multiple="false"
-                placeholder="Selecione o tipo de Atividade"
+                placeholder="Selecione o tipo de atividade"
                 [compareWith]="compareWith"
             >
                 <ion-select-option
                     *ngFor="let type of types"
-                    [value]="type"
+                    [value]="type.key"
                 >
-                    {{ type }}
+                    {{ type.label }}
                 </ion-select-option>
             </ion-select>
         </ion-item>
