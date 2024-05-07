@@ -6,7 +6,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-    imports: [BoredRoutingModule, CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
-    declarations: [BoredListaComponent]
+  imports: [BoredRoutingModule, CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
+  declarations: [BoredListaComponent]
 })
 export class BoredModule { }

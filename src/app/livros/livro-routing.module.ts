@@ -4,22 +4,22 @@ import { LivroListaComponent } from "./components/livro-lista/livro-lista.compon
 import { LivroCadastroComponent } from "./components/livro-cadastro/livro-cadastro.component";
 
 const routes: Routes = [
-    {
-        path: '',
-        component: LivroListaComponent
-    },
-    {
-        path: 'novo',
-        component: LivroCadastroComponent
-    },
-    {
-        path: 'edicao/:id',
-        component: LivroCadastroComponent,
-    }
+  {
+    path: '',
+    component: LivroListaComponent
+  },
+  {
+    path: 'novo',
+    component: LivroCadastroComponent
+  },
+  {
+    path: 'edicao/:id',
+    component: LivroCadastroComponent,
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class LivroRoutingModule { }

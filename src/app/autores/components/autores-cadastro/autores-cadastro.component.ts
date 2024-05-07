@@ -10,9 +10,9 @@ import { AlertService } from '@services';
 @Component({
   selector: 'app-autores-cadastro',
   templateUrl: './autores-cadastro.component.html',
-  styleUrls: ['./autores-cadastro.component.scss'],
 })
 export class AutoresCadastroComponent implements OnInit {
+
   autorId: number | null;
   autoresForm: FormGroup;
 
@@ -26,9 +26,10 @@ export class AutoresCadastroComponent implements OnInit {
     this.autoresForm = this.createForm();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    if (id) {
+
+    if ( id ) {
       this.autorId = parseInt(id);
       this.autorService.getAutor(this.autorId).subscribe((autor) => {
         this.autoresForm = this.createForm(autor);
@@ -36,12 +37,12 @@ export class AutoresCadastroComponent implements OnInit {
     }
   }
 
-  private createForm(autor?: AutorInterface) {
+  private createForm(autor?: AutorInterface): FormGroup {
     return new FormGroup({
       nome: new FormControl(autor?.nome || '', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(150),
+    Validators.maxLength(150),
       ]),
       dataNascimento: new FormControl(
         autor?.dataNascimento || new Date().toISOString()
@@ -53,15 +54,19 @@ export class AutoresCadastroComponent implements OnInit {
     });
   }
 
-  salvar() {
+  salvar(): void {
     const autor: AutorInterface = {
       ...this.autoresForm.value,
       id: this.autorId,
     };
-    this.autorService.salvar(autor).subscribe(
+
+    this.autorService
+    .salvar(autor)
+    .subscribe(
       () => this.router.navigate(['autores']),
       (erro) => {
         console.error(erro);
+
         this.alertService.error(`Não foi possível salvar o autor ${autor.nome}`);
       }
     );

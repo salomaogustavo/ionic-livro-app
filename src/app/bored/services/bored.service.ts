@@ -7,11 +7,10 @@ import { Observable } from "rxjs";
   providedIn: 'root',
 })
 export class BoredService {
+
   constructor(
     private httpClient: HttpClient,
-  ) {
-
-  }
+  ) { }
 
   getActivity(type: string): Observable<Activity> {
     return this.httpClient

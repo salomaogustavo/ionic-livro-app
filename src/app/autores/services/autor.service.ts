@@ -8,30 +8,30 @@ import { AutorInterface } from '../types/autor.interface';
 })
 export class AutorService {
 
-  private url = 'http://localhost:3000/autores';
+  API_URL = 'http://localhost:3000/autores/';
 
   constructor(
     private httpClient: HttpClient
   ) {}
 
   getAutores(): Observable<AutorInterface[]> {
-    return this.httpClient.get<AutorInterface[]>(this.url);
+    return this.httpClient.get<AutorInterface[]>(this.API_URL);
   }
 
   excluir(id: number): Observable<Object> {
-    return this.httpClient.delete(`${this.url}/${id}`);
+    return this.httpClient.delete(this.API_URL + id);
   }
 
   getAutor(id: number): Observable<AutorInterface> {
-    return this.httpClient.get<AutorInterface>(`${this.url}/${id}`);
+    return this.httpClient.get<AutorInterface>(this.API_URL + id);
   }
 
   private adicionar(autor: AutorInterface)  {
-    return this.httpClient.post(this.url, autor);
+    return this.httpClient.post(this.API_URL, autor);
   }
 
   private atualizar(autor: AutorInterface) {
-    return this.httpClient.put(`${this.url}/${autor.id}`, autor);
+    return this.httpClient.put(this.API_URL + autor.id, autor);
   }
 
   salvar(autor: AutorInterface) {

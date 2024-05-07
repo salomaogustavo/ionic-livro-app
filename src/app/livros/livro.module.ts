@@ -7,7 +7,7 @@ import { LivroCadastroComponent } from "./components/livro-cadastro/livro-cadast
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-    imports: [LivroRoutingModule, CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
-    declarations: [LivroListaComponent, LivroCadastroComponent]
+  imports: [LivroRoutingModule, CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
+  declarations: [LivroListaComponent, LivroCadastroComponent]
 })
 export class LivroModule { }

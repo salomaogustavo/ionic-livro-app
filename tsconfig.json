@@ -33,6 +33,9 @@
       "@autor": [
         "src/app/autores/index"
       ],
+      "@livro": [
+        "src/app/livros/index"
+      ]
     }
   },
   "includes": [
