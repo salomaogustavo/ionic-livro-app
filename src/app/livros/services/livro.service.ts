@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Livro } from '../types/livro.class';
-import { Observable, map, tap } from "rxjs";
+import { Observable, map } from "rxjs";
 import { LivroInterface } from "@livro";
 
 @Injectable({
@@ -31,11 +31,9 @@ export class LivroService {
     return this.httpClient
     .get<Livro[]>(this.API_URL)
     .pipe(
-      tap((data) => console.log('Data: ', data)),
       map((data) => {
         return data.map(item => new Livro(item))
-      }),
-      tap((data) => console.log('Data: ', data)),
+      })
     )
   }
 
@@ -44,8 +42,6 @@ export class LivroService {
   }
 
   up(livro: LivroInterface): Observable<LivroInterface> {
-    console.log(livro);
-
     if ( livro.id ) {
       return this.update(livro);
     }
@@ -53,3 +49,4 @@ export class LivroService {
     return this.save(livro);
   }
 }
+

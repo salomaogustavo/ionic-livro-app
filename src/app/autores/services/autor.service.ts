@@ -12,7 +12,7 @@ export class AutorService {
 
   constructor(
     private httpClient: HttpClient
-  ) {}
+  ) { }
 
   getAutores(): Observable<AutorInterface[]> {
     return this.httpClient.get<AutorInterface[]>(this.API_URL);
@@ -35,10 +35,11 @@ export class AutorService {
   }
 
   salvar(autor: AutorInterface) {
-    if(autor.id) {
+    if( autor.id ) {
       return this.atualizar(autor);
-    } else {
-      return this.adicionar(autor);
     }
+
+    return this.adicionar(autor);
   }
 }
+

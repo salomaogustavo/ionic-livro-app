@@ -8,12 +8,14 @@ import { Observable } from "rxjs";
 })
 export class BoredService {
 
+  API_URL = "https://www.boredapi.com/api/";
+
   constructor(
     private httpClient: HttpClient,
   ) { }
 
   getActivity(type: string): Observable<Activity> {
     return this.httpClient
-      .get<Activity>(`https://www.boredapi.com/api/activity?type=${type}`);
+      .get<Activity>(`${this.API_URL}activity?type=${type}`);
   }
 }

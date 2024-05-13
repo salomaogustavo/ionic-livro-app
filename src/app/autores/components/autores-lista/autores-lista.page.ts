@@ -56,7 +56,7 @@ export class AutoresListaComponent implements OnInit {
   }
 
   private excluir(autor: AutorInterface): void {
-    if (autor.id) {
+    if ( autor.id ) {
       this.autorService.excluir(autor.id).subscribe(
         () => this.listar(),
         (error: Error) => {
@@ -68,3 +68,4 @@ export class AutoresListaComponent implements OnInit {
     }
   }
 }
+

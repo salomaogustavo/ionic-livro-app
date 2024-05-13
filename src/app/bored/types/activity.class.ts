@@ -20,3 +20,4 @@ export class Activity {
     this.accessibility = isNumber(data.accessibility);
   }
 }
+

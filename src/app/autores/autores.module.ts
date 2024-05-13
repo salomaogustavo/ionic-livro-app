@@ -8,14 +8,8 @@ import { AutoresListaComponent } from './components/autores-lista/autores-lista.
 import { AutoresCadastroComponent } from './components/autores-cadastro/autores-cadastro.component';
 
 @NgModule({
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    IonicModule,
-    AutoresPageRoutingModule,
-    HttpClientModule,
-  ],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, IonicModule, AutoresPageRoutingModule, HttpClientModule],
   declarations: [AutoresListaComponent, AutoresCadastroComponent]
 })
-export class AutoresPageModule {}
+export class AutoresPageModule { }
+

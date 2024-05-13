@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   templateUrl: './bored-lista.component.html',
 })
 export class BoredListaComponent implements OnDestroy {
+
   public types: { label: string, key: string }[] = [
     { label: "Educação", key: "education" },
     { label: "Recreativo", key: "recreational" },
@@ -34,13 +35,13 @@ export class BoredListaComponent implements OnDestroy {
   ) { }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
+    if ( this.subscription ) {
       this.subscription.unsubscribe();
     }
   }
 
   fetchActivity(type: string): void {
-    if (this.subscription) {
+    if ( this.subscription ) {
       this.subscription.unsubscribe();
     }
 
@@ -65,7 +66,7 @@ export class BoredListaComponent implements OnDestroy {
   onSubmit(): void {
     let selectedType = this.activityForm.get('type')?.value;
 
-    if (selectedType) {
+    if ( selectedType ) {
       this.fetchActivity(selectedType);
     }
   }

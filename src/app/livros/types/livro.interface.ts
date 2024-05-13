@@ -12,3 +12,4 @@ export interface LivroInterface {
   logoUrl: string;
   preco: number;
 }
+

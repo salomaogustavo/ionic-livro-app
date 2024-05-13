@@ -31,7 +31,9 @@ export class AutoresCadastroComponent implements OnInit {
 
     if ( id ) {
       this.autorId = parseInt(id);
-      this.autorService.getAutor(this.autorId).subscribe((autor) => {
+      this.autorService
+      .getAutor(this.autorId)
+      .subscribe((autor) => {
         this.autoresForm = this.createForm(autor);
       });
     }
@@ -42,7 +44,7 @@ export class AutoresCadastroComponent implements OnInit {
       nome: new FormControl(autor?.nome || '', [
         Validators.required,
         Validators.minLength(3),
-    Validators.maxLength(150),
+        Validators.maxLength(150),
       ]),
       dataNascimento: new FormControl(
         autor?.dataNascimento || new Date().toISOString()
@@ -76,3 +78,4 @@ export class AutoresCadastroComponent implements OnInit {
     return this.autoresForm.get('nome');
   }
 }
+

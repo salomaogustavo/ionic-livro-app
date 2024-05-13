@@ -70,3 +70,4 @@ export class LivroListaComponent implements OnInit, OnDestroy {
     .then((alerta) => alerta.present());
   }
 }
+

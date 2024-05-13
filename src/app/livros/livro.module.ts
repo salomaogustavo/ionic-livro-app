@@ -11,3 +11,4 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   declarations: [LivroListaComponent, LivroCadastroComponent]
 })
 export class LivroModule { }
+

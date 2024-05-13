@@ -7,3 +7,4 @@ export interface ActivityInterface {
   key: string;
   accessibility: number;
 }
+

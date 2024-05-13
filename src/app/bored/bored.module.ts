@@ -10,3 +10,4 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   declarations: [BoredListaComponent]
 })
 export class BoredModule { }
+
