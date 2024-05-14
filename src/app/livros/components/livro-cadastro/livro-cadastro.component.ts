@@ -94,8 +94,12 @@ export class LivroCadastroComponent implements OnInit, OnDestroy {
         Validators.minLength(3)
       ]),
       subtitulo: new FormControl(livro?.subtitulo || ''),
-      numeroPaginas: new FormControl(livro?.numeroPaginas || 0, Validators.min(5)),
+      numeroPaginas: new FormControl(livro?.numeroPaginas || 0, [
+        Validators.required,
+        Validators.min(5)
+      ]),
       isbn: new FormControl(livro?.isbn || '', [
+        Validators.required,
         Validators.minLength(10),
         Validators.maxLength(10)
       ]),
@@ -105,7 +109,10 @@ export class LivroCadastroComponent implements OnInit, OnDestroy {
         this.anoAtualValidator
       ]),
       logoUrl: new FormControl(livro?.logoUrl || 'http://', Validators.pattern(this.URL_PATTERN)),
-      preco: new FormControl(livro?.preco || 0, Validators.min(0)),
+      preco: new FormControl(livro?.preco || 0, [
+        Validators.required,
+        Validators.min(0)
+      ]),
       autores: new FormControl(livro?.autores || [], this.autoresValidator)
     });
   }
@@ -116,8 +123,8 @@ export class LivroCadastroComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     const livro: LivroInterface = {
-      ...this.livroForm.value,
       id: this.livroId,
+      ...this.livroForm.value,
     };
 
     this.subscriptions.add(
@@ -130,7 +137,11 @@ export class LivroCadastroComponent implements OnInit, OnDestroy {
         (error: Error) => {
           console.error(error);
 
-          this.alertService.error('Não foi possível salvar o livro.');
+          if ( livro.id ) {
+            this.alertService.error('Não foi possível salvar as alterações.');
+          } else {
+            this.alertService.error('Não foi possível salvar o livro.');
+          }
         }
       )
     );

@@ -21,34 +21,53 @@
       Cadastre os seus livros e autores e os tenha sempre em mão!
     </ion-card-content>
   </ion-card>
-
-  <ion-row>
-    <ion-col>
-      <ion-card>
-        <ion-card-header [routerLink]="['/livros']">
-          <ion-card-title>
-            <ion-icon
-              name="book"
-              class="ion-float-left ion-margin-end"
-            />
-            Livros
-          </ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-col>
-    <ion-col>
-      <ion-card>
-        <ion-card-header [routerLink]="['/autores']">
-          <ion-card-title>
-            <ion-icon
-              name="people-circle"
-              class="ion-float-left ion-margin-end"
-            />
-            Autores
-          </ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+  <ion-col>
+    <ion-row>
+      <ion-col>
+        <ion-card style="cursor: pointer;">
+          <ion-card-header [routerLink]="['/livros']">
+            <ion-card-title>
+              <ion-icon
+                name="book"
+                class="ion-float-left ion-margin-end"
+              />
+              Livros
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="cursor: pointer;">
+          <ion-card-header [routerLink]="['/autores']">
+            <ion-card-title>
+              <ion-icon
+                name="people-circle"
+                class="ion-float-left ion-margin-end"
+              />
+              Autores
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+  <ion-col>
+    <ion-row>
+      <ion-col>
+        <ion-card style="cursor: pointer;">
+          <ion-card-header [routerLink]="['/bored']">
+            <ion-card-title>
+              <ion-icon
+                name="baseball"
+                class="ion-float-left ion-margin-end"
+              />
+              Bored API
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col/>
+    </ion-row>
+  </ion-col>
 </ion-content>
 

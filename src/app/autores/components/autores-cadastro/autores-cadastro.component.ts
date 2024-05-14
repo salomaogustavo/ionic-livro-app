@@ -58,8 +58,8 @@ export class AutoresCadastroComponent implements OnInit {
 
   salvar(): void {
     const autor: AutorInterface = {
-      ...this.autoresForm.value,
       id: this.autorId,
+      ...this.autoresForm.value,
     };
 
     this.autorService
